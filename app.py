@@ -1,3 +1,4 @@
+from datetime import datetime
 from flask import Flask
 
 app = Flask(__name__)
@@ -14,3 +15,10 @@ def goodbye_world():
 @app.route("/coder/")
 def coder():
     return "<p>This  web app was created in a class at Coder Academy.</p>"
+
+@app.route('/current_time/')
+def current_time():
+    now = datetime.now()
+
+    time = now.strftime('%H:%M')
+    return  f'<p>{time}</p>'
